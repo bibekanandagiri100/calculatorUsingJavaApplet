@@ -10,32 +10,33 @@ import java.applet.*;
 public class CalculatorUsingApplet extends Applet implements ActionListener
 {
 	String msg=" ";
-	int v1,v2,result;
+	int v1 = 0, v2 = 0, result = 0;
 	TextField t1;
 	Button b[]=new Button[10];
-	Button add,sub,mul,div,clear,mod,EQ;
+	Button add, sub, mul, div, clear, mod, EQ;
 	char OP;
 	public void init()
 	{
 		//Color k=new Color(120,89,90);
 		//setBackground(k);
-		t1=new TextField(10);
-		GridLayout gl=new GridLayout(4,5);
+		t1 = new TextField(10);
+		GridLayout gl = new GridLayout(4,5);
 		setLayout(gl);
-		for(int i=0;i<10;i++)
+		for(int i=0; i<10; i++)
 		{
-			b[i]=new Button(""+i);
+			b[i] = new Button(""+i);
 		}
-		add=new Button("+");
-		sub=new Button("-");
-		mul=new Button("X");
-		div=new Button("/");
-		mod=new Button("mod");
-		clear=new Button("Clear");
-		EQ=new Button("=");
+		add = new Button("add");
+		sub = new Button("sub");
+		mul = new Button("mul");
+		div = new Button("div");
+		mod = new Button("mod");
+		clear = new Button("Clear");
+		EQ = new Button("EQ");
+		
 		t1.addActionListener(this);
 		add(t1);
-		for(int i=0;i<10;i++)
+		for(int i=0; i<10; i++)
 		{
 			add(b[i]);
 		}
@@ -61,12 +62,11 @@ public class CalculatorUsingApplet extends Applet implements ActionListener
  
 	public void actionPerformed(ActionEvent ae)
 	{
-		String str=ae.getActionCommand();
-		char ch=str.charAt(0);
-		if ( Character.isDigit(ch))
-		t1.setText(t1.getText()+str);
-		else
-		if(str.equals("add"))
+		String str = ae.getActionCommand();
+		char ch = str.charAt(0);
+		if (Character.isDigit(ch))
+			t1.setText(t1.getText()+str);
+		else if(str.equals("add"))
 		{
 			v1=Integer.parseInt(t1.getText());
 			OP='+';
@@ -96,6 +96,7 @@ public class CalculatorUsingApplet extends Applet implements ActionListener
 			OP='%';
 			t1.setText("");
 		}
+		
 		if(str.equals("EQ"))
 		{
 			v2=Integer.parseInt(t1.getText());
@@ -111,7 +112,7 @@ public class CalculatorUsingApplet extends Applet implements ActionListener
 				result=v1%v2;
 			t1.setText(""+result);
 		}	
-		if(str.equals("clear"))
+		if(str.equals("Clear"))
 		{
 			t1.setText("");
 		}
