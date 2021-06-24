@@ -1,2 +1,2 @@
 # calculatorUsingJavaApplet
-Calculator Using Java Applet
+Creat a Calculator Using Java Applet
